@@ -6,6 +6,7 @@ import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 
 /**
+  * http://www.mtitek.com/tutorials/solr/collectionsAPI.php
   */
 object SolrRestApi {
   private val URL = "http://localhost:8983"
