@@ -56,3 +56,5 @@ implicit class MyOwnStringImprovements(s:String){
 
 a.constantValue
 "some string".charCount
+
+// scala.io.Source.fromURL("localhost:8387/rest/endpoint").mkString()
