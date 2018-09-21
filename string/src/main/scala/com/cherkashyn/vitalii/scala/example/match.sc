@@ -29,6 +29,8 @@ def defineType(x:Any):String={
     case _: String => ">string<"
     case List(1, 2, _) => ">List(1,2,_)<"
     case List(5, 9, _*) => ">List started with 5 and 9<"
+    case _: List[String] => ">List string<"
+    case _: List[Int] => ">List Int<"
     case (0, 5) => ">tuple 0,5<"
     case _ => ">unknown<"
   }
@@ -42,5 +44,7 @@ println(defineType(listInt1))
 
 val listInt2 = List(5, 9, 10, 12, 15)
 println(defineType(listInt2))
+
+println(defineType(List("one","two", "three")))
 
 println(defineType((0,5)))
