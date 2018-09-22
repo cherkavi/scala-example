@@ -48,3 +48,31 @@ println(defineType(listInt2))
 println(defineType(List("one","two", "three")))
 
 println(defineType((0,5)))
+
+
+sealed trait Employee{
+  def name: String = ???
+}
+case class Worker(var wname:String) extends Employee{
+  override def name = wname
+}
+case class Employer(var ename:String) extends Employee{
+  override def name = ename
+}
+// companion object for Employee
+object Employee {
+  def unapply(employee: Employee): Option[Any] = Some(employee.name)
+}
+
+def matchCaseClass(v:Employee): Unit ={
+  v match{
+    case Worker(n) => println(s"worker name ${n}")
+    case Employer(e) => println(s"employer name ${e}")
+    case Employee(compObj) => println(s"object ${compObj}")
+  }
+}
+matchCaseClass(new Worker("Petya"))
+matchCaseClass(new Employer("Vasya"))
+matchCaseClass(new Employee {
+  override def name: String = "Kolya"
+})
