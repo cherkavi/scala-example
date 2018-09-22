@@ -25,14 +25,14 @@ val multiOperator:Int = searchValue match{
 
 def defineType(x:Any):String={
   x match{
-    case _: Int => ">integer<"
-    case _: String => ">string<"
-    case List(1, 2, _) => ">List(1,2,_)<"
-    case List(5, 9, _*) => ">List started with 5 and 9<"
-    case _: List[String] => ">List string<"
-    case _: List[Int] => ">List Int<"
-    case (0, 5) => ">tuple 0,5<"
-    case _ => ">unknown<"
+    case     _ : Int            => ">integer<"
+    case     _ : String         => ">string<"
+    case  list @ List(1, 2, _)  => s">List(1,2,_) : ${list}<"
+    case list2 @ List(5, 9, _*) => s">List started with 5 and 9 : ${list2}<"
+    case     _ : List[String]   => ">List string<"
+    case     _ : List[Int]      => ">List Int<"
+    case                 (0, 5) => ">tuple 0,5<"
+    case                      _ => ">unknown<"
   }
 }
 println(defineType(1))
