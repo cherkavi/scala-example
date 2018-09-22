@@ -20,7 +20,7 @@ val searchValue:String = list(1).asInstanceOf[String]
 val multiOperator:Int = searchValue match{
   case "one" => 1
   case "two" | "four" | "six" => 2
-  case "three" | "five" => 3
+  case s if s=="three" | s=="five" => 3
 }
 
 def defineType(x:Any):String={
@@ -67,8 +67,11 @@ object Employee {
 def matchCaseClass(v:Employee): Unit ={
   v match{
     case Worker(n) => println(s"worker name ${n}")
+    case Employer(e) if e=="Vasya" => println(s"employer Vasya")
     case Employer(e) => println(s"employer name ${e}")
-    case Employee(compObj) => println(s"object ${compObj}")
+    case Employee(compObj) => {
+      println(s"object ${compObj}")
+    }
   }
 }
 matchCaseClass(new Worker("Petya"))
