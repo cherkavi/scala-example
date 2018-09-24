@@ -6,7 +6,8 @@ class Zug(private var _name:String = "unknown"){
   }
 
   // mutator
-  def name_=(newName: String): Unit ={
+  // def name_=(newName: String): Unit ={
+  def name_$eq(newName: String): Unit ={
     this._name = newName
   }
 
