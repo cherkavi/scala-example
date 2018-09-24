@@ -1,4 +1,4 @@
-class Zug(private var _name:String){
+class Zug(private var _name:String = "unknown"){
 
   // accessor
   def name:String = {
@@ -21,3 +21,6 @@ val currentZug = new Zug("U4")
 println(currentZug.name)
 currentZug.name = "U2"
 println(currentZug.name)
+
+// default parameter example
+println(new Zug())
