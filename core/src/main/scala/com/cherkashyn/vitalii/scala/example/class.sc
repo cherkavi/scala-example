@@ -3,7 +3,7 @@ trait Environment{
 }
 case class Ground(val name: String = "Ground") extends  Environment
 case class Water(val name: String = "Water") extends  Environment
-case class Air(val name: String = "Air") extends  Environment
+case class Air (val name: String = "Air")  extends  Environment
 
 // abstract class with predefined constructor
 abstract class Vehicle[T<:Environment](val name:String, val hasWheels:Boolean){
