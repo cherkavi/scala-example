@@ -1,0 +1,3 @@
+this is simple
+text file
+without any magic
