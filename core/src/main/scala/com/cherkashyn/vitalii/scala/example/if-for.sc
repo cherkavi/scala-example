@@ -39,4 +39,3 @@ for( (value) <- list){
   println(value)
 }
 val list2 = ("one" +: "two" +: "three" +: "four" +: "five" +: "six" +: "seven" +: Nil)
-
