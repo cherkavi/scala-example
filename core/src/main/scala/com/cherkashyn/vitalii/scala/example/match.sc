@@ -16,8 +16,9 @@ val list = ("one" +: "two" +: "three")
 import scala.annotation.switch
 println(list)
 val searchValue:String = list(1).asInstanceOf[String]
-// (searchValue : @switch )
-val multiOperator:Int = searchValue match{
+// condition will be compiled into decision tree
+// otherwise each time walk through all conditions
+val multiOperator:Int = (searchValue: @switch) match{
   case "one" => 1
   case "two" | "four" | "six" => 2
   case s if s=="three" | s=="five" => 3
