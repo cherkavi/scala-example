@@ -5,12 +5,16 @@ if (stringValue!=null){
 }
 
 
+// ternary operator
+val anotherString = if(stringValue.startsWith("my")) stringValue else "unknown"
+
+// ternary condition into function
 def isNullString(v:String):Boolean = {
   if (v!=null) true else false
 }
 
-val anotherString = if(stringValue.startsWith("my")) stringValue else "unknown"
 
+// for loop
 
 val newString = for(char <- anotherString) yield (char+1).asInstanceOf[Char]
 println(newString)
@@ -23,6 +27,7 @@ for(counter <- 0 until 10 ; counter2 <- 0 until counter) {
   print(counter2)
 }
 
+// multiply counters, multipy guards
 for{
   counter <- 0 until 10
   counter2 <- 0 until counter
@@ -30,12 +35,17 @@ for{
   if counter2!=2
 }   print(counter2)
 
+// map loop "for"
 val cities = Map("Germany"->"Berlin", "Ukraine"->"Kiev")
 for( (_, city) <- cities )print ( city)
 
 // last element "three" will be splitted by characters
 val list = List("one" +: "two" +: "three")
+// list loop "for"
 for( (value) <- list){
   println(value)
 }
+
+// fix "mistake" with last element
 val list2 = ("one" +: "two" +: "three" +: "four" +: "five" +: "six" +: "seven" +: Nil)
+for(el<-list2)yield el
