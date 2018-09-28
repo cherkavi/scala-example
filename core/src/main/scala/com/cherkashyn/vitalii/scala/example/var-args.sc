@@ -16,7 +16,7 @@ listValues+=6
 listValues+=7
 
 // flatMap list to var-args
-summarize(listValues: _*)
+summarize(listValues:_*)
 
 
 def summator(left:Int, right:Int):Int = {
