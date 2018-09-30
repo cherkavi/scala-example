@@ -2,3 +2,5 @@
 */*.iml
 */target
 */project
+derby.log
+metastore_db
