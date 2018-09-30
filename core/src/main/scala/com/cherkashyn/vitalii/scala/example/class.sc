@@ -51,3 +51,7 @@ final class Car(override val name:String)
 
 new Car("my_car")
 new Aircraft("my jet")
+
+// constructor with named parameters
+class Example(name:String, size:Int, active:Boolean)
+new Example(size=5, active=true, name = "some name")
