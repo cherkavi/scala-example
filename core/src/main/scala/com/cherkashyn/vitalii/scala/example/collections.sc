@@ -25,9 +25,13 @@ for((key,value)<-simpleMap)yield key
 
 // accumulators, buffers
 val arrayBuffer = new ArrayBuffer[Int]()
+System.identityHashCode(arrayBuffer) // the same
 arrayBuffer+=1;arrayBuffer+=2;arrayBuffer+=3
-println(arrayBuffer)
+System.identityHashCode(arrayBuffer) // the same
+arrayBuffer
 
 val listBuffer = new ListBuffer[Int]()
+System.identityHashCode(listBuffer) // the same
 listBuffer+=1;listBuffer+=2;listBuffer+=3
-println(listBuffer)
+System.identityHashCode(listBuffer) // the same
+listBuffer
