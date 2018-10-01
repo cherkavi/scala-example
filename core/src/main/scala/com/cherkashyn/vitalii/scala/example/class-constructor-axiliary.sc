@@ -30,3 +30,15 @@ class Person(val name:String, val surname:String,
 
 }
 
+
+class Employee(name:String, surname:String)
+  extends Person(name, surname, age = 100){
+
+  def this(name:String, surname:String, salary:Int){
+    // no way to using auxiliary parent constructor
+    // into another auxiliary constructor of the current class
+    // super(name, surname)
+    this(name, surname)
+  }
+
+}
