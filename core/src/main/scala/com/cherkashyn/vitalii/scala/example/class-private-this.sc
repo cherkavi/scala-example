@@ -17,6 +17,8 @@ object Zug{
     // private field is accessible
     zug.name = newName
     // can't access field uniqueName - strong private
+    // zug.uniqueName =
+    // using mutator instead off
     zug.setUniqueName("__"+newName+"__")
   }
 }
