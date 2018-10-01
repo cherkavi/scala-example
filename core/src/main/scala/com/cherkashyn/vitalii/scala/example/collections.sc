@@ -6,6 +6,9 @@ list.map(s=>s"-$s-")
 // list.asInstanceOf[List[String]].partition(_.length>3)
 list.filter(_.length>0)
 
+val list2 = List("one", "two" )  ++  (for(i<-1 to 5)yield i.toString)
+
+
 
 def checkLength(s:String):Boolean = {
   s.length>3
