@@ -38,3 +38,8 @@ System.identityHashCode(listBuffer) // the same
 listBuffer+=1;listBuffer+=2;listBuffer+=3
 System.identityHashCode(listBuffer) // the same
 listBuffer
+
+// sequence
+val seq1:Seq[Int] = (for(i<-1 to 5)yield i)
+def printSeq(a:Seq[String]) = a.foreach(print(_))
+printSeq(seq1.map(_.toString+" "))
