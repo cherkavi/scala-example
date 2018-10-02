@@ -7,3 +7,11 @@ def doIfTrue(v: => Boolean) ( action: => Unit): Unit = {
 doIfTrue(5>7)(println("YES!!!"))
 doIfTrue{"some text".size>5}(println("text is more than 5"))
 doIfTrue{"some text".size>5}{println("text is more than 5")}
+
+
+// example of using function as variable
+def checkIt(v:String => Boolean): Unit = {
+  println(v)
+}
+
+checkIt( x => x.size > 5)
