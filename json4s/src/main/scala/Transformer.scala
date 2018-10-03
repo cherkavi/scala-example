@@ -10,6 +10,8 @@ object Transformer {
 
   def fromJson(jsonString:String):Option[SourceDomain] = {
     implicit val formats = DefaultFormats
+    // parse from from Array[Byte]
+    // parse(new ByteInputStream(bytes, bytes.length)).extract[SourceDomain]
     val jsValue = parse(jsonString)
     jsValue.extractOpt[SourceDomain]
   }
