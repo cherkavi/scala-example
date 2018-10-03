@@ -1,4 +1,5 @@
-import scala.collection.mutable.{ArrayBuffer, ListBuffer}
+import scala.collection.mutable.ArrayBuffer
+import scala.collection.mutable.ListBuffer
 
 val list = ("one" +: "two" +: "three" +: "four" +: "five" +: "six" +: "seven" +: Nil)
 
@@ -43,3 +44,15 @@ listBuffer
 val seq1:Seq[Int] = (for(i<-1 to 5)yield i)
 def printSeq(a:Seq[String]) = a.foreach(print(_))
 printSeq(seq1.map(_.toString+" "))
+
+
+// immutable map
+val immutableMap = Map[String, String]("one"->"two", "three"->"four")
+// immutableMap.foreach[Unit]( ( "", "") => print("values") )
+for((k,v)<-immutableMap)println(s" $k  $v ")
+immutableMap.foreach( entry=> {println(s"${entry._1}   ${entry._2}")} )
+
+// mutable map
+val mutableMap = scala.collection.mutable.Map[String, String]()
+mutableMap.put("one", "two")
+mutableMap+=("three"->"four")
