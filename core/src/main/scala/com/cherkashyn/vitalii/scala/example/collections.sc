@@ -56,3 +56,6 @@ immutableMap.foreach( entry=> {println(s"${entry._1}   ${entry._2}")} )
 val mutableMap = scala.collection.mutable.Map[String, String]()
 mutableMap.put("one", "two")
 mutableMap+=("three"->"four")
+
+// convert mutable to immutable
+mutableMap.toMap
