@@ -13,6 +13,14 @@ def isNullString(v:String):Boolean = {
   if (v!=null) true else false
 }
 
+println(">>> for loop with object, python style, iterator function <<<")
+class MyCustomIterator(val begin:Int, val end:Int){
+  /** method will be called implicitly during "for" instruction */
+  def foreach( iteratorFunctionWithParameter:Int => Unit) :Unit ={
+    for(i <- this.begin.until(this.end)) iteratorFunctionWithParameter(i)
+  }
+}
+for(i<-new MyCustomIterator(10,20))print(s"${i} ")
 
 println(">>> for loop<<<")
 val newString = for(char <- anotherString) yield (char+1).asInstanceOf[Char]
