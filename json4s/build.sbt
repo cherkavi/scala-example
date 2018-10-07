@@ -79,3 +79,6 @@ libraryDependencies += "org.json4s" %% "json4s-jackson" % "3.6.0"
 // test
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.5"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
+
+// https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+libraryDependencies += "org.apache.httpcomponents" % "httpclient" % "4.5.4"
