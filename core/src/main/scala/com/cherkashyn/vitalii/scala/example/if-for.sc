@@ -30,7 +30,7 @@ println("double loop with 'unitil' condition ")
 for(counter <- 0 until 10 ;
     counter2 <- 0 until counter)print(counter2)
 
-// multiply counters, multipy guards
+// multiply counters, multiply guards
 for{
   counter <- 0 until 10
   counter2 <- 0 until counter
@@ -38,9 +38,11 @@ for{
   if counter2!=2
 }   print(counter2)
 
-// map loop "for"
-val cities = Map("Germany"->"Berlin", "Ukraine"->"Kiev")
+val cities = Map("Germany"->"Berlin", "Ukraine"->"Kiev", "Switzerland"->"Zurich")
+println(s"elements inside map")
 for( (_, city) <- cities )print ( city)
+cities.keys
+cities.values
 
 // last element "three" will be splitted by characters
 val list = List("one" +: "two" +: "three")
