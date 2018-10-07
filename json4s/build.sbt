@@ -73,6 +73,9 @@ libraryDependencies += "org.typelevel" %% "cats-core" % "1.1.0"
 // To learn more about multi-project builds, head over to the official sbt
 // documentation at http://www.scala-sbt.org/documentation.html
 
-libraryDependencies += "org.json4s" %% "json4s-jackson" % "3.3.0"
+libraryDependencies += "org.json4s" %% "json4s-jackson" % "3.6.0"
 
 
+// test
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.5"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
