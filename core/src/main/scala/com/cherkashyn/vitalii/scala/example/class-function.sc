@@ -11,6 +11,7 @@ def posititveNumbers(v:Int):Boolean = {
 // predefined function
 checkIfTrue(posititveNumbers)
 
+// class CustomClassFunction extends ((Int) => Boolean){
 class CustomClassFunction extends Function1[Int, Boolean]{
   override def apply(v1: Int):Boolean = {
     v1<0
