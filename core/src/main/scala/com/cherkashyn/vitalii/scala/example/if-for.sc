@@ -14,8 +14,7 @@ def isNullString(v:String):Boolean = {
 }
 
 
-// for loop
-
+println(">>> for loop<<<")
 val newString = for(char <- anotherString) yield (char+1).asInstanceOf[Char]
 println(newString)
 
@@ -23,9 +22,13 @@ val list3 = for(index <- 0 to 10 if index<5) yield index*index
 
 for(counter<- 0 to 10 if counter%2 == 0)print(counter)
 
-for(counter <- 0 until 10 ; counter2 <- 0 until counter) {
-  print(counter2)
-}
+println("loop with step")
+for(counter<-0 to (12,3))yield counter
+for(counter<-0.to(12,3))yield counter
+
+println("double loop with 'unitil' condition ")
+for(counter <- 0 until 10 ;
+    counter2 <- 0 until counter)print(counter2)
 
 // multiply counters, multipy guards
 for{
