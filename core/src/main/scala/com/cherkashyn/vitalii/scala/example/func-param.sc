@@ -13,3 +13,10 @@ def applyFilter(values:List[String], func: (String)=>Boolean ): List[String] ={
 }
 
 applyFilter(list, _.length>3)
+
+
+// example of returning Unit
+def functionUnit():Unit = {
+  println("some operators inside function ")
+  ()
+}
