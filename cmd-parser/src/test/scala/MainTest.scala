@@ -18,8 +18,8 @@ class MainTest extends FunSuite {
     // given
     // when
     // then
-    // Main.parseArguments[Config]()
-    Main.parseAnnotations(new Config())
+    Main.parseArguments[Config]()
+    // Main.parseAnnotations(new Config())
   }
 
 }

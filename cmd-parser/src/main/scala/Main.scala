@@ -1,4 +1,3 @@
-import scala.reflect.api._
 
 import java.lang.annotation.ElementType
 import java.lang.annotation.Retention
@@ -9,9 +8,11 @@ import java.lang.annotation.Target
 @Retention(RetentionPolicy.RUNTIME)
 class CmdParam (var text: String)
 
+
+
 // case class CmdParam(val text:String, val nameOverride: String = "") extends scala.annotation.StaticAnnotation
 
-case class Config( @CmdParam(text = "inputPath")
+case class Config( @CommandParameter(text = "inputPath")
                    var inputFilePath: String = "",
                    @CmdParam(text = "outputPath")
                   var outputPath: String = "",
@@ -37,11 +38,20 @@ object Main {
   // example of using return value as null, return value null, null return value
   // def returnNull[T>:Null]():T = {null}
 
+  import scala.reflect.runtime.{universe => ru}
+  import ru._
 
 
+  def getAnnotationProperties(annotation: ru.Annotation) = {
+    for(each<-annotation.tree.children){
+      println(each)
+    }
+  }
 
-//  import scala.reflect.runtime.universe._
-//  def parseArguments[T:TypeTag]():Unit = {
+  def parseArguments[T:TypeTag]():Unit = {
+    val symbol = typeOf[T].typeSymbol
+
+    getAnnotationProperties(symbol.annotations.head)
     // ------------------------
 //    val accessors = typeOf[T].members.collect {
 //      // case m: MethodSymbol if m.isGetter && m.isPublic  => m
@@ -67,7 +77,7 @@ object Main {
 //    val reflectField = m.reflect(typeOf[T]).reflectField(fieldSession)
 //    reflectField.set("hello")
 
-  //  }
+    }
 
   def parseArgs(args: Array[String]): Config = {
 
