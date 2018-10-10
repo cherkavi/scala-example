@@ -4,6 +4,24 @@ import scala.collection.mutable.ListBuffer
 println(">>> list")
 val list = ("one" +: "two" +: "three" +: "four" +: "five" +: "six" +: "seven" +: Nil)
 
+println("> zip operation")
+list.zip("A")
+println("> head")
+list.head
+println("> tail ")
+list.tail
+println("> zip with tail - create tuple")
+list.zip(list)
+list.zip(list.tail)
+list.zip(list.tail.tail)
+List(1,2,3).zip(List(4,5,6)).map(t => t._1 + t._2)
+
+println("> unzip ")
+List( ("one","two"), ("two","three"), ("three","four") ).unzip
+// cannot be executed
+// List( (1,2,3),(4,5,6), (7,8,9) ).unzip
+
+println("> map")
 list.map(s=>s"-$s-")
 // list.asInstanceOf[List[String]].partition(_.length>3)
 list.filter(_.length>0)
@@ -74,3 +92,6 @@ mutableMap+=("three"->"four")
 
 println(">>> convert mutable to immutable")
 mutableMap.toMap
+
+println(">>> stream")
+// val stream:Stream[Int] = 1 #:: 2 #:: 3 #:: 4
