@@ -23,3 +23,13 @@ try{
 }
 
 
+// try catch is returning value
+
+val intConverter = (s:String) =>
+try{
+  s.toInt
+}catch{
+  case _:Throwable => 0
+}
+intConverter("13")
+intConverter("a")
