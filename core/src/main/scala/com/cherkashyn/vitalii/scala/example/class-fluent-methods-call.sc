@@ -6,7 +6,8 @@ class FluentMethodsExample(private var init_value:Int = 0) {
     this
   }
 
-  def add(value:Int):this.type = {
+  // not allow for class hierarchy ( for children )
+  def add(value:Int):FluentMethodsExample = {
     this.x = this.x + value
     this
   }
