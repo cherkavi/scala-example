@@ -4,6 +4,8 @@ if (stringValue!=null){
   println("string exits")
 }
 
+// if return value
+val a = if(stringValue.length>0) 1 else 0
 
 // ternary operator
 val anotherString = if(stringValue.startsWith("my")) stringValue else "unknown"
