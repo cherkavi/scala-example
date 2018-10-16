@@ -15,6 +15,7 @@ class Bus(name:String) extends Car(name)
 /** trait with ability to belong only to ancestor of Bus */
 trait Kitchen {
   // can be extended only with instanceOf Bus
+  // also possible add addition traits via keyword 'with'
   this: Bus =>
   // default value for method
   def hasAKitchen:Boolean = true
