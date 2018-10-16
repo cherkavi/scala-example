@@ -1,6 +1,7 @@
 case class Cat(name:String, age:Int, hasId:Boolean){
 }
 
+// apply method
 val kitCat = Cat("Kit", 5, true)
 
 // value hasId will be copied from source object
