@@ -37,3 +37,10 @@ def functionUnit():Unit = {
   println("some operators inside function ")
   ()
 }
+
+def printStrings(s:String*):Unit = {
+  for(each<-s)println(each)
+}
+printStrings("one","two","three")
+printStrings(Array("one", "two", "three"):_*)
+printStrings(List("one", "two", "three"):_*)
