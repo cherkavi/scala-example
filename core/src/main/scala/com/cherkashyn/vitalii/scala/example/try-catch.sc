@@ -33,3 +33,12 @@ try{
 }
 intConverter("13")
 intConverter("a")
+
+
+Try("abcd".toInt).toOption
+Try("abcd".toInt).toOption.isDefined
+Try("abcd".toInt).failed.get
+Try("15".toInt).get
+Try("20".toInt).isSuccess
+Try("abcd".toInt).map[Int](x => x+13)
+  .transform[String](x=>Try(x.toString),_=>Try("wrong number")).get
