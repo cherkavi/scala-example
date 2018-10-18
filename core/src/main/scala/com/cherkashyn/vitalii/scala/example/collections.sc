@@ -1,6 +1,13 @@
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.ListBuffer
 
+println(">>> array")
+val array1 = Array("one","two", "three")
+println("append element to array")
+array1:+"four"
+println("create sequence from element: array & string ")
+array1+:"four"+:Nil
+
 println(">>> list")
 val list = ("one" +: "two" +: "three" +: "four" +: "five" +: "six" +: "seven" +: Nil)
 val listInlineCreation = ("one" +: "two" +: "three" +: Nil)
@@ -26,6 +33,9 @@ list.map(s=>s"-$s-")
 // list.asInstanceOf[List[String]].partition(_.length>3)
 list.filter(_.length>0)
 
+println("add element to list")
+List("one","two")++"three"++Nil
+println("add elements to list")
 val list3 = List("one", "two" )  ++  (for(i<-1 to 5)yield i.toString)
 
 
