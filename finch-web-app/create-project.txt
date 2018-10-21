@@ -1,0 +1,5 @@
+Finch
+https://github.com/finagle/finch/blob/master/docs/src/main/tut/user-guide.md
+https://github.com/finagle/finch/blob/master/docs/src/main/tut/cookbook.md
+
+sbt new bneil/finch-skeleton.g8 
