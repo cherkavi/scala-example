@@ -1,3 +1,4 @@
+[online documentation, api](https://www.scala-lang.org/api/)
 [execute code online](https://scastie.scala-lang.org/)
 
 [execute code online with ability to draw graphics](https://scalafiddle.io/)
