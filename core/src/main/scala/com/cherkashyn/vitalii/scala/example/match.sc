@@ -62,7 +62,7 @@ case class Employer(var ename:String) extends Employee{
 // companion object for Employee
 object Employee {
   // method will be used by "match"
-  def unapply(employee: Employee): Option[Any] = Some(employee.name)
+  def unapply(employee: Employee): Option[String] = Some(employee.name)
 }
 
 def matchCaseClass(v:Employee): Unit ={
