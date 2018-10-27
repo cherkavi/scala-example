@@ -44,3 +44,12 @@ def printStrings(s:String*):Unit = {
 printStrings("one","two","three")
 printStrings(Array("one", "two", "three"):_*)
 printStrings(List("one", "two", "three"):_*)
+
+// ---------------------------
+// default parameters, naming parameters
+def printMessage(prefix:String=">>>", message:String, suffix:String="<<<<") : Unit = println(prefix+message+suffix)
+printMessage(message="example", prefix = ">>>>")
+
+// method currying
+def printDefaultMessage : String => Unit = printMessage("...", _ , "...")
+printDefaultMessage("another example")
