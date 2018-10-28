@@ -18,3 +18,5 @@
 [scala templates and tutorials](https://developer.lightbend.com/start/)
 [spark scala tutorial](https://github.com/deanwampler/spark-scala-tutorial)
 [spark scala tutorial](https://github.com/ktoso/spark-workshop)
+
+![scala collection](https://i.postimg.cc/dtNC7zdf/scala-collection.png)
