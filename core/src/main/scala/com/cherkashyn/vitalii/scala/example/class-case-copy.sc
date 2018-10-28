@@ -9,3 +9,9 @@ kitCat.copy("Kit2", 2)
 
 // specify field by name
 kitCat.copy(age=2)
+
+kitCat.productPrefix
+kitCat.productArity
+
+val iterator = kitCat.productIterator
+while(iterator.hasNext)iterator.next()
