@@ -1,6 +1,7 @@
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.ListBuffer
 
+// https://docs.scala-lang.org/overviews/collections/performance-characteristics.html
 println(">>> list")
 val list = ("one" +: "two" +: "three" +: "four" +: "five" +: "six" +: "seven" +: Nil)
 val listInlineCreation = ("one" +: "two" +: "three" +: Nil)
