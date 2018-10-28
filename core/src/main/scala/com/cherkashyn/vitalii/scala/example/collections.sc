@@ -4,6 +4,12 @@ import scala.collection.mutable.ListBuffer
 println(">>> list")
 val list = ("one" +: "two" +: "three" +: "four" +: "five" +: "six" +: "seven" +: Nil)
 val listInlineCreation = ("one" +: "two" +: "three" +: Nil)
+println("> list add element ")
+var listNumbers = List(1,2,3,4)
+0+:listNumbers
+listNumbers:+5
+
+
 println("> zip operation with not enough elements ")
 list.zip("A")
 println("> head")
