@@ -13,6 +13,7 @@
 
 
 # tutorials
+* [overview](https://docs.scala-lang.org/overviews/)
 * [online documentation, api](https://www.scala-lang.org/api/)
 * [scala for java programmers](https://docs.scala-lang.org/tutorials/scala-for-java-programmers.html)
 * [scala templates and tutorials](https://developer.lightbend.com/start/)
