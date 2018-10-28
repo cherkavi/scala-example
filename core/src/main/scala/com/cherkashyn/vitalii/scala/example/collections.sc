@@ -117,6 +117,12 @@ println("> foldLeft")
 seq1.foldLeft[Int](100){
   case(accumulator, nextValue)=>accumulator+nextValue
 }
+seq1.foldRight[Int](100){
+  case(accumulator, nextValue)=>accumulator+nextValue
+}
+seq1.fold[Int](100){
+  case(accumulator, nextValue)=>accumulator+nextValue
+}
 
 println("> exists")
 seq1.exists(p => p>100)
