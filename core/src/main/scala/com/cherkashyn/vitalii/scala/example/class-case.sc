@@ -10,8 +10,13 @@ object FacadeString{
 }
 println(FacadeString("one"))
 
-var arr = Array(1,2,3) // Array.apply(1,2,3)
+println("> apply method for creating Array")
+var arr = Array(1,2,3)
+Array.apply(1,2,3)
 
+println("> apply method for retrieving value")
+arr(2)
+arr.apply(2)
 
 
 println(">unapply method")
