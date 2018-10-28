@@ -103,10 +103,11 @@ System.identityHashCode(listBuffer) // the same
 listBuffer
 
 println(">>> sequence")
-val seq1:Seq[Int] = (for(i<-1 to 5)yield i)
+val seq1:Seq[Int] = (for(i <- 1 to 5)yield i)
 def printSeq(a:Seq[String]) = a.foreach(print(_))
 printSeq(seq1.map(_.toString+" "))
-
+println(">>> sequence forall example")
+seq1.forall(x=>x>0)
 
 println(">>> set")
 // set is a ancestor from x:T=>Boolean
