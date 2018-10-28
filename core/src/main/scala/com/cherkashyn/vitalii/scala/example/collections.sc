@@ -122,6 +122,7 @@ setOfInt3 diff setOfInt2 // &~
 //setOfInt3 remove setOfInt2
 
 println(">>> immutable map")
+println(">>> each entry as a tuple")
 val immutableMap = Map[String, String]("one"->"two", "three"->"four")
 // immutableMap.foreach[Unit]( ( "", "") => print("values") )
 for((k,v)<-immutableMap)println(s" $k  $v ")
@@ -134,6 +135,9 @@ mutableMap+=("three"->"four")
 
 println(">>> convert mutable to immutable")
 mutableMap.toMap
+
+println(">>> zip two ranges and convert them into map ")
+(1 to 5).zip('a' to 'g').toMap
 
 println(">>> stream")
 println("> predefined stream ")
