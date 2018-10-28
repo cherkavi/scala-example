@@ -30,7 +30,7 @@ val multiOperator:Int = (searchValue: @switch) match{
 println("match with type and with certain values into types")
 def defineType(x:Any):String={
   x match{
-    case     _ : Int            => ">integer<"
+    case     i : Int            => s">integer:${i}<"
     case     _ : String         => ">string<"
     case  list @ List(1, 2, _)  => s">List(1,2,_) : ${list}<"
     case list2 @ List(5, 9, _*) => s">List started with 5 and 9 : ${list2}<"
