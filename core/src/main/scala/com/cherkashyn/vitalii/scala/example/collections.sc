@@ -23,12 +23,40 @@ List( ("one","two"), ("two","three"), ("three","four") ).unzip
 
 println("> map")
 list.map(s=>s"-$s-")
-// list.asInstanceOf[List[String]].partition(_.length>3)
-list.filter(_.length>0)
 
+println("> collect with partial function ")
+list.collect(new PartialFunction[String, String](){
+  override def isDefinedAt(x: String) = x.length()<=3
+  override def apply(v1: String) = v1.split("").mkString("-")
+})
+
+println("> collect with partial function as map")
+list.collect(Map("one"->"o.n.e", "two"->"t.w.o","unknown"->"unknown"))
+
+println("> collect with partial function as map")
+list.collect(Map("one"->"o.n.e", "two"->"t.w.o","unknown"->"unknown"))
+
+println("> collect with partial function as case switcher")
+def pdf:PartialFunction[String, String] = {
+  case s if s.length<=3 => s.split("").mkString(":")
+  case rest @ _  => rest.split("").mkString("|")
+}
+list.collect(pdf)
+
+def startWith:PartialFunction[String, String] = {
+  case s if s.startsWith("o") => s
+  case s if s.startsWith("t") => s
+}
+list.collect(pdf).collect(startWith)
+
+println("> filter")
+list.filter(_.length>3)
+
+println("add two maps")
 val list3 = List("one", "two" )  ++  (for(i<-1 to 5)yield i.toString)
 
-
+println("split list to partitions")
+list.asInstanceOf[List[String]].partition(_.length>3)
 
 def checkLength(s:String):Boolean = {
   s.length>3
