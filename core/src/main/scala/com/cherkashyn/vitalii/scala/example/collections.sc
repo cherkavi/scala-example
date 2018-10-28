@@ -137,7 +137,12 @@ println(">>> convert mutable to immutable")
 mutableMap.toMap
 
 println(">>> zip two ranges (stop when one of the range ran out) and convert them into map ")
-(1 to 5).zip('a' to 'z').toMap
+val zippedRange = (1 to 5).zip('a' to 'z').toMap
+
+zippedRange(1)
+// zippedRange(9)
+zippedRange.get(1)
+zippedRange.getOrElse(9, "z")
 
 println(">>> stream")
 println("> predefined stream ")
