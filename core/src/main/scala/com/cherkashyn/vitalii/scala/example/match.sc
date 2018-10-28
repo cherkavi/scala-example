@@ -22,6 +22,8 @@ val multiOperator:Int = (searchValue: @switch) match{
   case "one" => 1
   case "two" | "four" | "six" => 2
   case s if s=="three" | s=="five" => 3
+    // example of assigning "anything" to variable and use it further
+  case rest @ _  => rest.length
 }
 
 
