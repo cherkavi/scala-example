@@ -1,7 +1,13 @@
 case class Cat(name:String, age:Int, hasId:Boolean){}
 
 println("> apply method")
-val kitCat = Cat("Kit", 5, true)
+// val kitCat = new Cat("Kit", 5, true)
+val kitCat = Cat("Kit", 5, true) //  Cat.apply("Kit", 5, true)
+
+println(">unapply method")
+
+var a:Option[(String,Int,Boolean)] = Cat.unapply(kitCat)
+a.get
 
 println("> value hasId will be copied from source object")
 kitCat.copy("Kit2", 2)
