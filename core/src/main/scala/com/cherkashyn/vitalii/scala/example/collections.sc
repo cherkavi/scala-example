@@ -11,6 +11,8 @@ println("> prepend")
 0+:listNumbers
 println("> append")
 listNumbers:+5
+println("> flatmap")
+listNumbers.flatMap(number=>Range(0,number))
 
 
 println("> zip operation with not enough elements ")
