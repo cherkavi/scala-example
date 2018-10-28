@@ -55,3 +55,10 @@ new Aircraft("my jet")
 // constructor with named parameters
 class Example(name:String, size:Int, active:Boolean)
 new Example(size=5, active=true, name = "some name")
+
+println("> compare instances")
+val car1 = new Car("car1")
+    car1 == new Car("car1") // false
+new Car("car1").equals(new Car("car1")) // false
+    car1 == car1                  // true
+    car1.equals(car1)             // true
