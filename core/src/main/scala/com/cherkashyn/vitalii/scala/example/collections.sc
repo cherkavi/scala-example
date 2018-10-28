@@ -136,8 +136,8 @@ mutableMap+=("three"->"four")
 println(">>> convert mutable to immutable")
 mutableMap.toMap
 
-println(">>> zip two ranges and convert them into map ")
-(1 to 5).zip('a' to 'g').toMap
+println(">>> zip two ranges (stop when one of the range ran out) and convert them into map ")
+(1 to 5).zip('a' to 'z').toMap
 
 println(">>> stream")
 println("> predefined stream ")
