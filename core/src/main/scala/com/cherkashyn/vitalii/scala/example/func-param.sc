@@ -54,3 +54,8 @@ printMessage(message="example", prefix = ">>>>")
 // method currying
 def printDefaultMessage : String => Unit = printMessage("...", _ , "...")
 printDefaultMessage("another example")
+
+val addOne         = (x:Int)=> x + 1
+val addOneCurrying =     (_:Int) + 1
+println(addOne(11))
+println(addOneCurrying(12))
