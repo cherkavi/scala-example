@@ -106,8 +106,12 @@ println(">>> sequence")
 val seq1:Seq[Int] = (for(i <- 1 to 5)yield i)
 def printSeq(a:Seq[String]) = a.foreach(print(_))
 printSeq(seq1.map(_.toString+" "))
-println(">>> sequence forall example")
-seq1.forall(x=>x>0)
+
+println(">>> forall ")
+seq1.forall( x => x>0 )
+
+println(">>> reduce ")
+seq1.reduce((accumulator, nextValue)=> accumulator+nextValue)
 
 println(">>> set")
 // set is a ancestor from x:T=>Boolean
