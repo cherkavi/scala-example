@@ -43,11 +43,15 @@ def pdf:PartialFunction[String, String] = {
 }
 list.collect(pdf)
 
+println("> collect chain ")
 def startWith:PartialFunction[String, String] = {
   case s if s.startsWith("o") => s
   case s if s.startsWith("t") => s
 }
 list.collect(pdf).collect(startWith)
+
+println("> collect by type")
+List(1,2,"three","four",5.0).collect({case x:Int=>x.toString})
 
 println("> filter")
 list.filter(_.length>3)
