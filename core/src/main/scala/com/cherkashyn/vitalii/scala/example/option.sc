@@ -5,5 +5,18 @@ def detectValue(s:Option[String]):String = {
   }
 }
 
-detectValue(Some("value"))
+detectValue(Some("some value"))
+detectValue(Option("option value"))
 detectValue(None)
+
+for{
+  i <- Option("-one-")
+  j <- Option("-two-")
+}println(s"${i} and ${j} ")
+
+// no output - k is None
+for{
+  i <- Option("-one-")
+  j <- Option("-two-")
+  k <- None
+}println(s"${i} and ${j} and ${k}")
