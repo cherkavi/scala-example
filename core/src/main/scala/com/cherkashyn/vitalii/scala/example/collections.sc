@@ -7,7 +7,9 @@ val list = ("one" +: "two" +: "three" +: "four" +: "five" +: "six" +: "seven" +:
 val listInlineCreation = ("one" +: "two" +: "three" +: Nil)
 println("> list add element ")
 var listNumbers = List(1,2,3,4)
+println("> prepend")
 0+:listNumbers
+println("> append")
 listNumbers:+5
 
 
