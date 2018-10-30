@@ -1,13 +1,13 @@
-import java.io.{IOException, InputStream}
+import java.io.IOException
 
 import scala.io.{BufferedSource, Source}
-import scala.util.Try
+import scala.util.{Failure, Success, Try}
 
-val myAttempt = Try(throw new IllegalArgumentException("hard-coded exception"))
+val myAttempt = Try[String](throw new IllegalArgumentException("hard-coded exception"))
 
 val resultOfAttempt = myAttempt match{
-  case scala.util.Success(value) => "success"
-  case scala.util.Failure(exception) => exception.getMessage
+  case Success(value) => s"success: ${value}"
+  case Failure(exception) => exception.getMessage
 }
 
 
@@ -23,8 +23,7 @@ try{
 }
 
 
-// try catch is returning value
-
+println("> try catch is returning value")
 val intConverter = (s:String) =>
 try{
   s.toInt
@@ -42,3 +41,9 @@ Try("15".toInt).get
 Try("20".toInt).isSuccess
 Try("abcd".toInt).map[Int](x => x+13)
   .transform[String](x=>Try(x.toString),_=>Try("wrong number")).get
+
+println("> yield example ")
+for{
+  i <- Success("-one-")
+  j <- Success("-two-")
+}println(s" $i  $j")

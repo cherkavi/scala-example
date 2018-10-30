@@ -1,6 +1,7 @@
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.ListBuffer
 
+// https://docs.scala-lang.org/overviews/collections/performance-characteristics.html
 println(">>> array")
 val array1 = Array("one","two", "three")
 println("append element to array")
@@ -11,6 +12,16 @@ array1+:"four"+:Nil
 println(">>> list")
 val list = ("one" +: "two" +: "three" +: "four" +: "five" +: "six" +: "seven" +: Nil)
 val listInlineCreation = ("one" +: "two" +: "three" +: Nil)
+println("> list add element ")
+var listNumbers = List(1,2,3,4)
+println("> prepend")
+0+:listNumbers
+println("> append")
+listNumbers:+5
+println("> flatmap")
+listNumbers.flatMap(number=>Range(0,number))
+
+
 println("> zip operation with not enough elements ")
 list.zip("A")
 println("> head")
@@ -30,15 +41,47 @@ List( ("one","two"), ("two","three"), ("three","four") ).unzip
 
 println("> map")
 list.map(s=>s"-$s-")
-// list.asInstanceOf[List[String]].partition(_.length>3)
-list.filter(_.length>0)
+
+println("> collect with partial function ")
+list.collect(new PartialFunction[String, String](){
+  override def isDefinedAt(x: String) = x.length()<=3
+  override def apply(v1: String) = v1.split("").mkString("-")
+})
+
+println("> collect with partial function as map")
+list.collect(Map("one"->"o.n.e", "two"->"t.w.o","unknown"->"unknown"))
+
+println("> collect with partial function as map")
+list.collect(Map("one"->"o.n.e", "two"->"t.w.o","unknown"->"unknown"))
 
 println("add element to list")
 List("one","two")++"three"++Nil
 println("add elements to list")
+println("> collect with partial function as case switcher")
+def pdf:PartialFunction[String, String] = {
+  case s if s.length<=3 => s.split("").mkString(":")
+  case rest @ _  => rest.split("").mkString("|")
+}
+list.collect(pdf)
+
+println("> collect chain ")
+def startWith:PartialFunction[String, String] = {
+  case s if s.startsWith("o") => s
+  case s if s.startsWith("t") => s
+}
+list.collect(pdf).collect(startWith)
+
+println("> collect by type")
+List(1,2,"three","four",5.0).collect({case x:Int=>x.toString})
+
+println("> filter")
+list.filter(_.length>3)
+
+println("add two maps")
 val list3 = List("one", "two" )  ++  (for(i<-1 to 5)yield i.toString)
 
-
+println("split list to partitions")
+list.asInstanceOf[List[String]].partition(_.length>3)
 
 def checkLength(s:String):Boolean = {
   s.length>3
@@ -70,10 +113,44 @@ System.identityHashCode(listBuffer) // the same
 listBuffer
 
 println(">>> sequence")
-val seq1:Seq[Int] = (for(i<-1 to 5)yield i)
+val seq1:Seq[Int] = (for(i <- 1 to 5)yield i)
 def printSeq(a:Seq[String]) = a.foreach(print(_))
 printSeq(seq1.map(_.toString+" "))
 
+println("> forall ")
+seq1.forall( x => x>0 )
+
+println("> reduce ")
+seq1.reduce((accumulator, nextValue)=> accumulator+nextValue)
+
+println("> foldLeft")
+seq1.foldLeft[Int](100){
+  case(accumulator, nextValue)=>accumulator+nextValue
+}
+seq1.foldRight[Int](100){
+  case(accumulator, nextValue)=>accumulator+nextValue
+}
+seq1.fold[Int](100){
+  case(accumulator, nextValue)=>accumulator+nextValue
+}
+
+println("> exists")
+seq1.exists(p => p>100)
+
+println("> find")
+seq1.find(p=> p==3).getOrElse(99)
+
+println("> group by key")
+seq1.groupBy(each=> if(each>=3)"three" else "zero")
+
+println("> takeWhile ")
+seq1.takeWhile(p => p<3)
+
+println("> dropWhile ")
+seq1.dropWhile(p => p<3)
+
+println("> product")
+seq1.product
 
 println(">>> set")
 // https://docs.scala-lang.org/overviews/collections/sets.html
@@ -92,6 +169,7 @@ setOfInt3 diff setOfInt2 // &~
 //setOfInt3 remove setOfInt2
 
 println(">>> immutable map")
+println(">>> each entry as a tuple")
 val immutableMap = Map[String, String]("one"->"two", "three"->"four")
 // immutableMap.foreach[Unit]( ( "", "") => print("values") )
 for((k,v)<-immutableMap)println(s" $k  $v ")
@@ -104,6 +182,14 @@ mutableMap+=("three"->"four")
 
 println(">>> convert mutable to immutable")
 mutableMap.toMap
+
+println(">>> zip two ranges (stop when one of the range ran out) and convert them into map ")
+val zippedRange = (1 to 5).zip('a' to 'z').toMap
+
+zippedRange(1)
+// zippedRange(9)
+zippedRange.get(1)
+zippedRange.getOrElse(9, "z")
 
 println(">>> stream")
 println("> predefined stream ")

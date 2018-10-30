@@ -22,13 +22,15 @@ val multiOperator:Int = (searchValue: @switch) match{
   case "one" => 1
   case "two" | "four" | "six" => 2
   case s if s=="three" | s=="five" => 3
+    // example of assigning "anything" to variable and use it further
+  case rest @ _  => rest.length
 }
 
 
 println("match with type and with certain values into types")
 def defineType(x:Any):String={
   x match{
-    case     _ : Int            => ">integer<"
+    case     i : Int            => s">integer:${i}<"
     case     _ : String         => ">string<"
     case  list @ List(1, 2, _)  => s">List(1,2,_) : ${list}<"
     case list2 @ List(5, 9, _*) => s">List started with 5 and 9 : ${list2}<"
@@ -62,7 +64,7 @@ case class Employer(var ename:String) extends Employee{
 // companion object for Employee
 object Employee {
   // method will be used by "match"
-  def unapply(employee: Employee): Option[Any] = Some(employee.name)
+  def unapply(employee: Employee): Option[String] = Some(employee.name)
 }
 
 def matchCaseClass(v:Employee): Unit ={
