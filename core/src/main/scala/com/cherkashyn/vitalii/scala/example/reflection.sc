@@ -1,6 +1,6 @@
 import java.lang.reflect.Method
 
-class Sample(var stringValue:String, val intValue:Int){
+class Sample(var stringValue:String, var intValue:Int){
   override def toString: String = s" ${stringValue}  ${intValue}"
 }
 val s1 = new Sample("hello", 13)
@@ -27,9 +27,11 @@ def writeValueToProperty[S](target: AnyRef, propertyName:String, value:S):Unit =
     .collectFirst(new PartialFunction[Method, Unit] {
       override def isDefinedAt(x: Method):Boolean = true
       override def apply(method: Method):Unit = {
-        method.invoke(target, value)
+        method.invoke(target, value.asInstanceOf[Object])
       }
     }).get
 }
-
+println(s"before: ${s1}")
 writeValueToProperty[String](s1, "stringValue", "done")
+writeValueToProperty[Int](s1, "intValue", 7)
+println(s"after: ${s1}")
