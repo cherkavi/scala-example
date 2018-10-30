@@ -76,6 +76,7 @@ printSeq(seq1.map(_.toString+" "))
 
 
 println(">>> set")
+// https://docs.scala-lang.org/overviews/collections/sets.html
 // set is a ancestor from x:T=>Boolean
 val setOfInt:(Int=>Boolean) = Set(1,2,3,1,2,3)
 setOfInt(2) // contains
