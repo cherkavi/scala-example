@@ -1,5 +1,7 @@
-# styleguide
+# code examples
 * [twitter](http://twitter.github.io/effectivescala/)
+
+# styleguide
 * [spark creator](http://github.com/databricks/scala-style-guide)
 
 # online editor 
