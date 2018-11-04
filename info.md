@@ -27,7 +27,11 @@
 
 
 # scalac
-## exceptions
-* "IO error while decoding .... with UTF-8"
+## exception: "IO error while decoding .... with UTF-8"
 solution:
 > add double quota to "-classpath" parameter
+
+## compile class with classpath
+```
+scalac -classpath "/home/technik/.sdkman/candidates/spark/2.3.0/jars/*" udt.scala
+```
