@@ -24,3 +24,10 @@
 * [spark scala tutorial](https://github.com/ktoso/spark-workshop)
 
 ![scala collection](https://i.postimg.cc/dtNC7zdf/scala-collection.png)
+
+
+# scalac
+## exceptions
+* "IO error while decoding .... with UTF-8"
+solution:
+> add double quota to "-classpath" parameter
