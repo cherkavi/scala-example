@@ -35,3 +35,8 @@ solution:
 ```
 scalac -classpath "/home/technik/.sdkman/candidates/spark/2.3.0/jars/*" udt.scala
 ```
+
+## compile code into jar
+```
+scalac -classpath "/home/technik/.sdkman/candidates/spark/2.3.0/jars/*" udt.scala -d udt.jar
+```
