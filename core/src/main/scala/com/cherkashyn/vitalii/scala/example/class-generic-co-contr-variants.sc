@@ -1,3 +1,26 @@
+class BaseProduct
+class Product extends BaseProduct
+class SpecificProduct extends Product
+
+println(">>> contrvariant ")
+// not possible
+// trait Factory[-A]{  // minus - less wider ( specific )
+//   def produce(): A  // contrvariant position
+// }
+trait Consumer[-A]{
+  def consume(value: A) // minus - less wider
+}
+class ProductConsumer extends Consumer[Product]{
+  override def consume(value: Product): Unit = println(value)
+}
+// new ProductConsumer().consume(new BaseProduct) - nicht moglich
+new ProductConsumer().consume(new Product)
+new ProductConsumer().consume(new SpecificProduct)
+
+
+println(">>> covariant")
+
+// ------------------------------
 trait SoundProducer{
   def produce()
 }
