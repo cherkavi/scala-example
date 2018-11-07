@@ -19,6 +19,12 @@ def produceSound[T <: AirTubeProducer](target:T): Unit ={
 }
 produceSound(new Horn())
 
+// invariant
+def player[T : Horn](target:T):Unit = {
+  // not visible
+  // target.produce()
+  // target.airOut()
+}
 
 // contr-variant
 def checkSound[T >: Horn](target:T): Unit ={
@@ -27,3 +33,5 @@ def checkSound[T >: Horn](target:T): Unit ={
   // target.produce()
 }
 // ------------------------
+
+class AirMusicPlayer[T:AirTubeProducer]()
