@@ -12,21 +12,21 @@ class Horn extends AirTubeProducer{
 }
 
 
-// co-variant
+println(">>> co-variant")
 def produceSound[T <: AirTubeProducer](target:T): Unit ={
   target.airOut()
   target.produce()
 }
 produceSound(new Horn())
 
-// invariant
+println(">>> invariant")
 def player[T : Horn](target:T):Unit = {
   // not visible
   // target.produce()
   // target.airOut()
 }
 
-// contr-variant
+println(">>> contr-variant")
 def checkSound[T >: Horn](target:T): Unit ={
   // not visible
   // target.airOut()
