@@ -24,3 +24,19 @@
 * [spark scala tutorial](https://github.com/ktoso/spark-workshop)
 
 ![scala collection](https://i.postimg.cc/dtNC7zdf/scala-collection.png)
+
+
+# scalac
+## exception: "IO error while decoding .... with UTF-8"
+solution:
+> add double quota to "-classpath" parameter
+
+## compile class with classpath
+```
+scalac -classpath "/home/technik/.sdkman/candidates/spark/2.3.0/jars/*" udt.scala
+```
+
+## compile code into jar
+```
+scalac -classpath "/home/technik/.sdkman/candidates/spark/2.3.0/jars/*" udt.scala -d udt.jar
+```
