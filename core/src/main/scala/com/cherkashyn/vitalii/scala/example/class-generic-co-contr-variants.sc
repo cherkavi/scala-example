@@ -2,13 +2,13 @@ class BaseProduct
 class Product extends BaseProduct
 class SpecificProduct extends Product
 
-println(">>> contrvariant ")
+println(">>> contravariant ")
 // not possible
-// trait Factory[-A]{  // minus - less wider ( specific )
+// trait Factory[-A]{  // minus - less wider class ( less freedom, specification )
 //   def produce(): A  // contrvariant position
 // }
 trait Consumer[-A]{
-  def consume(value: A) // minus - less wider
+  def consume(value: A) // minus - less wider class
 }
 class ProductConsumer extends Consumer[Product]{
   override def consume(value: Product): Unit = println(value)
@@ -19,6 +19,18 @@ new ProductConsumer().consume(new SpecificProduct)
 
 
 println(">>> covariant")
+trait Producer[+A]{
+  def produce(option:Int):A
+}
+class ProductProducer extends Producer[Product]{
+  def produce(option:Int): Product = option match {
+      // case 0 => new BaseProduct
+      case 1=> new Product
+      case _ => new SpecificProduct
+  }
+}
+new ProductProducer().produce(1)
+new ProductProducer().produce(2)
 
 // ------------------------------
 trait SoundProducer{
@@ -43,11 +55,14 @@ def produceSound[T <: AirTubeProducer](target:T): Unit ={
 produceSound(new Horn())
 
 println(">>> invariant")
-def player[T : Horn](target:T):Unit = {
+// def player[T : Horn](target:T):Unit = {
   // not visible
   // target.produce()
   // target.airOut()
-}
+// }
+// class AirMusicPlayer[T:AirTubeProducer] {
+//   def player(target:T)= println(target)
+// }
 
 println(">>> contr-variant")
 def checkSound[T >: Horn](target:T): Unit ={
@@ -57,4 +72,3 @@ def checkSound[T >: Horn](target:T): Unit ={
 }
 // ------------------------
 
-class AirMusicPlayer[T:AirTubeProducer]()
