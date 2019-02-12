@@ -5,6 +5,7 @@ def checkForNull(value: String) {
   value match {
     case s if s!=null => println(s"input string [${s}] is NOT null")
     case s2 => println(s"input string [${s2}] is null ")
+    case _ => 
   }
 }
 checkForNull(stringValue)
