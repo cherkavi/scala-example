@@ -122,26 +122,3 @@ setOfInt3 diff setOfInt2 // &~
 //setOfInt3 retain setOfInt2
 //setOfInt3 remove setOfInt2
 
-println(">>> immutable map")
-println(">>> each entry as a tuple")
-val immutableMap = Map[String, String]("one"->"two", "three"->"four")
-// immutableMap.foreach[Unit]( ( "", "") => print("values") )
-for((k,v)<-immutableMap)println(s" $k  $v ")
-immutableMap.foreach( entry=> {println(s"${entry._1}   ${entry._2}")} )
-
-println(">>> mutable map")
-val mutableMap = scala.collection.mutable.Map[String, String]()
-mutableMap.put("one", "two")
-mutableMap+=("three"->"four")
-
-println(">>> convert mutable to immutable")
-mutableMap.toMap
-
-println(">>> zip two ranges (stop when one of the range ran out) and convert them into map ")
-val zippedRange = (1 to 5).zip('a' to 'z').toMap
-
-zippedRange(1)
-// zippedRange(9)
-zippedRange.get(1)
-zippedRange.getOrElse(9, "z")
-
