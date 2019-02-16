@@ -39,7 +39,7 @@ List( ("one","two"), ("two","three"), ("three","four") ).unzip
 // cannot be executed
 // List( (1,2,3),(4,5,6), (7,8,9) ).unzip
 
-println("> map")
+println("> list.map")
 list.map(s=>s"-$s-")
 
 println("> collect with partial function ")
@@ -47,9 +47,6 @@ list.collect(new PartialFunction[String, String](){
   override def isDefinedAt(x: String) = x.length()<=3
   override def apply(v1: String) = v1.split("").mkString("-")
 })
-
-println("> collect with partial function as map")
-list.collect(Map("one"->"o.n.e", "two"->"t.w.o","unknown"->"unknown"))
 
 println("> collect with partial function as map")
 list.collect(Map("one"->"o.n.e", "two"->"t.w.o","unknown"->"unknown"))
@@ -95,9 +92,15 @@ list++list
 val groups = list.partition(_.length>3)
 // List(groups._1, groups._2).flatMap(_)
 
-println("> Map ")
-val simpleMap = Map("one"->"1", "two"->"2", "three"->"3")
+println("> Map")
+val simpleMap = Map("one"->1, "two"->2, "three"->3)
 for((key,value)<-simpleMap)yield key
+
+println("> Map as function, join functions ")
+val simpleMap2 = Map("four"->4, "five"->5, "six"->6, "seven"->7)
+
+println("extend defined scope of 'partial function': "+simpleMap.applyOrElse("seven", simpleMap2))
+println("extend defined scope of 'partial function' ask for unknown element: "+simpleMap.applyOrElse("not-exists", simpleMap2))
 
 println(">>> accumulators, buffers")
 val arrayBuffer = new ArrayBuffer[Int]()
