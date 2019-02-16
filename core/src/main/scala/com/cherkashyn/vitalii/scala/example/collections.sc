@@ -2,12 +2,6 @@ import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.ListBuffer
 
 // https://docs.scala-lang.org/overviews/collections/performance-characteristics.html
-println(">>> array")
-val array1 = Array("one","two", "three")
-println("append element to array")
-array1:+"four"
-println("create sequence from element: array & string ")
-array1+:"four"+:Nil
 
 println(">>> list")
 val list = ("one" +: "two" +: "three" +: "four" +: "five" +: "six" +: "seven" +: Nil)
@@ -58,7 +52,7 @@ list.collect({
 
 println("> add element to list")
 List("one","two")++"three"++Nil
-println("add elements to list")
+
 println("> collect with partial function as case switcher")
 def partialFunctionWithSplit:PartialFunction[String, String] = {
   case s if s.length<=3 => s.split("").mkString(":")
