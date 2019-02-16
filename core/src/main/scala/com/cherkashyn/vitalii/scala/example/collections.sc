@@ -54,7 +54,7 @@ list.collect(Map("one"->"o.n.e", "two"->"t.w.o","unknown"->"unknown"))
 println("> collect with partial function as map")
 list.collect(Map("one"->"o.n.e", "two"->"t.w.o","unknown"->"unknown"))
 
-println("add element to list")
+println("> add element to list")
 List("one","two")++"three"++Nil
 println("add elements to list")
 println("> collect with partial function as case switcher")
@@ -77,10 +77,10 @@ List(1,2,"three","four",5.0).collect({case x:Int=>x.toString})
 println("> filter")
 list.filter(_.length>3)
 
-println("add two maps")
+println("> add two maps")
 val list3 = List("one", "two" )  ++  (for(i<-1 to 5)yield i.toString)
 
-println("split list to partitions")
+println("> split list to partitions")
 list.asInstanceOf[List[String]].partition(_.length>3)
 
 def checkLength(s:String):Boolean = {
@@ -95,7 +95,7 @@ list++list
 val groups = list.partition(_.length>3)
 // List(groups._1, groups._2).flatMap(_)
 
-
+println("> Map ")
 val simpleMap = Map("one"->"1", "two"->"2", "three"->"3")
 for((key,value)<-simpleMap)yield key
 
