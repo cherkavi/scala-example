@@ -41,14 +41,15 @@ list.collect(new PartialFunction[String, String](){
   override def isDefinedAt(x: String) = x.length()<=3
   override def apply(v1: String) = v1.split("").mkString("-")
 })
-
-println("> collect with partial function as map")
-list.collect(Map("one"->"o.n.e", "two"->"t.w.o","unknown"->"unknown"))
+println("> collect with matching as partial function")
 list.collect({
   case "one"=>"o.n.e"
   case "two"=>"t.w.o"
   case _ => "unknown"
 })
+
+println("> collect with map as partial function")
+list.collect(Map("one"->"o.n.e", "two"->"t.w.o","unknown"->"unknown"))
 
 println("> add element to list")
 List("one","two")++"three"++Nil
