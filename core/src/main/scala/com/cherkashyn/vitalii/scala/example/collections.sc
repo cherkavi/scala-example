@@ -50,6 +50,13 @@ list.collect({
   case _ => "unknown"
 })
 
+println("> collectFirst (till first unknown element) with matching as partial function")
+list.collectFirst({
+  case "zero"=>"z.e.r.o"
+  case "one"=>"o.n.e"
+  case _ => "unknown"
+})
+
 println("> collect with map as partial function")
 list.collect(Map("one"->"o.n.e", "two"->"t.w.o","unknown"->"unknown"))
 
@@ -70,25 +77,25 @@ list.collect(partialFunctionWithSplit).collect(startWith)
 println("> collect by type")
 List(1,2,"three","four",5.0).collect({case x:Int=>x.toString})
 
+println(">> filter")
+def threshold(s:String):Boolean = s.length>3
+list.filter(threshold(_))
+list.filter(threshold)
+
 println("> filter")
 list.filter(_.length>3)
 
-println("> add two maps")
+println("> add two lists ")
 val list3 = List("one", "two" )  ++  (for(i<-1 to 5)yield i.toString)
 
 println("> split list to partitions")
 list.asInstanceOf[List[String]].partition(_.length>3)
 
-def checkLength(s:String):Boolean = {
-  s.length>3
-}
-list.filter(checkLength(_))
-
-println("> join both collections")
+println(">> join both collections")
 list++list
 
-
-val groups = list.partition(_.length>3)
+println(">> split up to collections")
+list.partition(_.length>3)
 // List(groups._1, groups._2).flatMap(_)
 
 
