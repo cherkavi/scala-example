@@ -60,18 +60,18 @@ println("> add element to list")
 List("one","two")++"three"++Nil
 println("add elements to list")
 println("> collect with partial function as case switcher")
-def pdf:PartialFunction[String, String] = {
+def partialFunctionWithSplit:PartialFunction[String, String] = {
   case s if s.length<=3 => s.split("").mkString(":")
   case rest @ _  => rest.split("").mkString("|")
 }
-list.collect(pdf)
+list.collect(partialFunctionWithSplit)
 
 println("> collect chain ")
 def startWith:PartialFunction[String, String] = {
   case s if s.startsWith("o") => s
   case s if s.startsWith("t") => s
 }
-list.collect(pdf).collect(startWith)
+list.collect(partialFunctionWithSplit).collect(startWith)
 
 println("> collect by type")
 List(1,2,"three","four",5.0).collect({case x:Int=>x.toString})
