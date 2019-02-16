@@ -4,7 +4,7 @@ import scala.annotation.tailrec
 def sum(list: List[Int], accumulator: Int): Int = {
   list match {
     case Nil => accumulator
-    case x :: xs => sum(xs, accumulator + x)
+    case firstElement :: restOfList => sum(restOfList, accumulator + firstElement)
   }
 }
 
