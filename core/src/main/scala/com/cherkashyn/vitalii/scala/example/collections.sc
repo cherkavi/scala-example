@@ -85,6 +85,15 @@ list.filter(threshold)
 println("> filter")
 list.filter(_.length>3)
 
+case class Person(name:String, age:Int)
+val persons = List(Person("Mike", 18),Person("Peter", 5), Person("Anna", 15))
+println(">> filter for case classes ")
+persons.filter({case Person(_, age) => age>=18})
+persons.filter({
+  case Person(_, age) if age>=18 => true
+  case _ => false
+})
+
 println("> add two lists ")
 val list3 = List("one", "two" )  ++  (for(i<-1 to 5)yield i.toString)
 
