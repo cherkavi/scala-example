@@ -1,4 +1,4 @@
-println("> Map")
+println("> immutable Map")
 val simpleMap = Map("one"->1, "two"->2, "three"->3)
 for((key,value)<-simpleMap)yield key
 
@@ -11,14 +11,13 @@ val simpleMap3 = Map(4->"*4*", 5->"*5*", 6->"*6*", 7->"*7*")
 (simpleMap3 compose simpleMap2)("five")
 
 
-println(">>> immutable map")
 println(">>> each entry as a tuple")
 val immutableMap = Map[String, String]("one"->"two", "three"->"four")
 // immutableMap.foreach[Unit]( ( "", "") => print("values") )
 for((k,v)<-immutableMap)println(s" $k  $v ")
 immutableMap.foreach( entry=> {println(s"${entry._1}   ${entry._2}")} )
 
-println(">>> mutable map")
+println("> mutable map")
 val mutableMap = scala.collection.mutable.Map[String, String]()
 mutableMap.put("one", "two")
 mutableMap+=("three"->"four")
