@@ -14,9 +14,9 @@ class CmdParam (var text: String)
 
 case class Config( @CommandParameter(text = "inputPath")
                    var inputFilePath: String = "",
-                   @CmdParam(text = "outputPath")
+                   @CommandParameter(text = "outputPath")
                   var outputPath: String = "",
-                   @CmdParam(text = "session")
+                   @CommandParameter(text = "session")
                   var session: String = "")
 
 
@@ -44,14 +44,14 @@ object Main {
 
   def getAnnotationProperties(annotation: ru.Annotation) = {
     for(each<-annotation.tree.children){
-      println(each)
+      println(">>> "+each.asInstanceOf[Array[java.lang.annotation.Annotation]](0))
     }
   }
 
   def parseArguments[T:TypeTag]():Unit = {
-    val symbol = typeOf[T].typeSymbol
+    val objectSymbol = typeOf[T].typeSymbol
+    getAnnotationProperties(objectSymbol.annotations.head)
 
-    getAnnotationProperties(symbol.annotations.head)
     // ------------------------
 //    val accessors = typeOf[T].members.collect {
 //      // case m: MethodSymbol if m.isGetter && m.isPublic  => m
