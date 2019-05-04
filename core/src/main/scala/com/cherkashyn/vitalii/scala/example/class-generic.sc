@@ -23,3 +23,9 @@ class Mp3Player extends Player[Horn]{
 }
 
 new Mp3Player().play(new Horn())
+
+
+// retrieve class from Typed/Generic parameter
+//  def typeToClassTag[T: scala.reflect.api.TypeTags.TypeTag]: scala.reflect.ClassTag[T] =
+//    scala.reflect.ClassTag[T](typeTag[T].mirror.runtimeClass(typeTag[T].tpe))
+// val c = typeToClassTag[T]
