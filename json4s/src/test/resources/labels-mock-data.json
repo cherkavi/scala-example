@@ -1,0 +1,5 @@
+{"projectName":"BMW-FAD","vin":"V714688","sessionId":"1ea903d1-db5d-4152-9655-89bab630beea","timestamp":1533810496005817500,"processedLabel":{"accelerationLongitudinal":"slight negative-s"}}, 
+{"projectName":"BMW-FAD","vin":"V714688","sessionId":"1ea903d1-db5d-4152-9655-89bab630beea","timestamp":1533810496006817500,"processedLabel":{"accelerationLongitudinal":"slight negative"}}, 
+{"projectName":"BMW-FAD","vin":"V714688","sessionId":"1ea903d1-db5d-4152-9655-89bab630beea","timestamp":1533810496007817500,"processedLabel":{"accelerationLongitudinal":"slight negative"}}, 
+{"projectName":"BMW-FAD","vin":"V714688","sessionId":"1ea903d1-db5d-4152-9655-89bab630beea","timestamp":1533810496019180100,"processedLabel":{"vehicleSpeed":"slow-s","accelerationLongitudinal":"slight negative"}}, 
+{"projectName":"BMW-FAD","vin":"V714688","sessionId":"1ea903d1-db5d-4152-9655-89bab630beea","timestamp":1533810500453368300,"processedLabel":{"vehicleSpeed":"slow normal","accelerationLongitudinal":"slight negative-e"}},
