@@ -3,6 +3,7 @@ import java.io.IOException
 import scala.io.{BufferedSource, Source}
 import scala.util.{Failure, Success, Try}
 
+// sourcecode: https://github.com/scala/scala/blob/v2.13.6/src/library/scala/util/Try.scala
 val myAttempt = Try[String](throw new IllegalArgumentException("hard-coded exception"))
 
 val resultOfAttempt = myAttempt match{
